@@ -4,7 +4,7 @@
 💻Saat ini saya sedang belajar pemrograman mobile:
 
 | No  | Minggu ke  | Praktikum ke  | Topik  | Modul | Template Laporan | 
-| ------------ | ------------ | ------------ | ------------ | ------------ | 
+| ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 |  1 | 01  | 01  | Pengenalan Mobile Programming dan Setup Lingkungan  |  |
 |  2 | 01  | 01  | Widget Row dan Column | |
 |  3 | 02  | 02  | Pengaturan Layout Row dan Column di Flutter  | |
