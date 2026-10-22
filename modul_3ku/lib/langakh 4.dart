@@ -1,0 +1,86 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Alignment',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Alignment'),
+        ),
+        body: Center(
+          child: Row( // ini yang step 7 khusus rownya diganti column dan yang bawahnya dikembalikan ke max setelah step 6
+            mainAxisSize: MainAxisSize.max, //ini khusus yang step 5 doang || yang step 6 ganti max jadi min || khusus step 8 kembali ke row dulu lagi, yang bagian max yang akhir bisa diganti (center, start, end, spaceBetween, spaceAround, spaceEvenly), dan untuk yang size cuma sampai step 6 seterusnya pakai alignment
+            crossAxisAlignment: CrossAxisAlignment.baseline, // ini khusus step 9 dan yang bagian akhir bisa diganti (start, end, center, stretch)
+            textBaseline: TextBaseline.alphabetic, // ini khusus step 9
+            children: [
+              // Text( // ini khusus step 9 sampai penutup icon
+              //   'Suhu:',
+              //   style: TextStyle(fontSize: 30),
+              // ),
+              // Text(
+              //   '25°C',
+              //   style: TextStyle(fontSize: 75),
+              // ),
+              // Icon(
+              //   Icons.sunny,
+              //   color: Colors.amber,
+              //   size: 45,
+              // ), // ini
+              KotakBiruJempolKecil(),
+              SizedBox(width: 20),
+              KotakBiruJempol(),
+              SizedBox(width: 20),
+              KotakBiruJempolKecil(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class KotakBiruJempol extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        border: Border.all(color: Colors.black, width: 2),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Icon(
+        Icons.thumb_up,
+        color: Colors.white,
+        size: 40,
+      ),
+    );
+  }
+}
+
+class KotakBiruJempolKecil extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 75,
+      height: 75,
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        border: Border.all(color: Colors.black, width: 2),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Icon(
+        Icons.thumb_up,
+        color: Colors.white,
+        size: 40,
+      ),
+    );
+  }
+}
