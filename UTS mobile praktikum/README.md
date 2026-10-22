@@ -1,74 +1,110 @@
+# Spotify App
+
 ## Pengembang
 
-Nama: Dimas Bagus Hari Murti  
-NIM: 240605110080  
-Kelas: B  
-Mata Kuliah: Mobile Programming  
-Dosen Pengampu: A'la Syauqi,M.Kom
+- **Nama:** Firman Fadilah Noor
+- **NIM:** 240605110083
+- **Kelas:** F
+- **Mata Kuliah:** Mobile Programming Praktikum
+- **Dosen Pengampu:** Khadijah Fahmi Hayati Holle, S.Kom., M.Kom
 
+# Spotify App
 
-# Dimusic App
-
-Aplikasi "Dimusic" adalah aplikasi pemutar musik sederhana berbasis Flutter yang menampilkan daftar lagu dari API "iTunes".  
-Aplikasi ini dibuat untuk memenuhi bagian dari tugas UTS Mobile Programming.  
-
+Aplikasi **Spotify App** merupakan aplikasi pemutar musik sederhana berbasis Flutter yang menampilkan daftar lagu menggunakan API iTunes. Aplikasi ini dikembangkan sebagai bagian dari tugas UTS Mobile Programming.
 
 ## Deskripsi Singkat
 
-Home_Page.dart berfungsi untuk menampilkan berbagai daftar lagu berdasarkan kategori seperti:  
-- Made for You  
-- Popular Indonesia Singer  
-- Taylor Swift Collection  
-- Top Lyodra Song  
-- Top NIKI Song  
+File `home_page.dart` berfungsi menampilkan berbagai daftar lagu berdasarkan kategori, yaitu:
 
-Selain itu, didalam file music_player_pages.dart pengguna juga dapat:
-- Memutar lagu (play, pause, next, previous)
-- Menyukai lagu (like)
-- Menambahkan lagu ke dalam playlist  
+- Made for You
+- Popular Indonesia Singer
+- Taylor Swift Collection
+- Top Lyodra Song
+- Top NIKI Song
+- Lagu Pilihan Kamu
 
+Kategori **Lagu Pilihan Kamu** ditambahkan untuk menampilkan lagu-lagu pilihan dari Raim Laode dan The 1975.
+
+Daftar lagu yang ditambahkan meliputi:
+
+- Dunia Yang Nanti — Raim Laode
+- Iqro — Raim Laode
+- Bersenja Gurau — Raim Laode
+- Lesung Pipi — Raim Laode
+- Menari-nari — Raim Laode
+- About You — The 1975
+
+Selain itu, halaman `music_player_page.dart` digunakan untuk menyediakan fitur pemutar musik dan interaksi pengguna.
 
 ## Fitur Utama
 
-1. Menampilkan Lagu dari API iTunes  
-   Lagu ditampilkan secara dinamis menggunakan data real-time dari API iTunes.  
+### 1. Menampilkan Lagu dari API iTunes
 
-2. Pemutar Musik Interaktif  
-   Lagu dapat diputar langsung dari aplikasi melalui halaman Music_Player_Page.dart  
+Aplikasi mengambil informasi lagu berdasarkan kata kunci pencarian menggunakan fungsi `ItunesApi.fetchSongs()`. Data yang diperoleh digunakan untuk menampilkan judul lagu, nama artis, dan gambar album.
 
-3. Fitur Like dan Playlist 
-   Lagu dapat ditandai sebagai favorit dan ditambahkan ke playlist pribadi.  
+### 2. Kategori Lagu
 
-4. Navigasi Antar Halaman  
-   Menggunakan "BottomNavigationBar" dan "Navigator.push()" untuk berpindah antar halaman seperti Home, Music, Like, dan Playlist.  
+Aplikasi menyediakan beberapa kategori lagu, termasuk kategori tambahan **Lagu Pilihan Kamu** yang berisi lagu-lagu pilihan dari Raim Laode dan The 1975.
 
-5. Tampilan Tema yang dinamis  
-   Aplikasi mendukung Light Mode dan Dark Mode yang otomatis menyesuaikan dengan preferensi pengguna.
+### 3. Pemutar Musik Interaktif
 
+Halaman `MusicPlayerPage` menyediakan antarmuka pemutar musik dengan kontrol seperti play, pause, next, dan previous. Pemutaran audio bergantung pada ketersediaan sumber audio yang digunakan.
+
+### 4. Fitur Like dan Playlist
+
+Pengguna dapat menyukai lagu dan mengelola lagu ke dalam playlist melalui `LikeManager` dan `PlaylistManager`.
+
+### 5. Navigasi Antarhalaman
+
+Aplikasi menggunakan mekanisme navigasi Flutter, termasuk `Navigator.push()`, untuk berpindah dari halaman utama menuju halaman pemutar musik. Navigasi ke halaman lain mengikuti implementasi yang tersedia di dalam proyek.
+
+### 6. Tema Dinamis
+
+Aplikasi menyediakan tampilan dengan tema terang (*Light Mode*) dan tema gelap (*Dark Mode*) sesuai konfigurasi tema yang diterapkan.
 
 ## Penjelasan Kode Utama
 
 ### 1. `ItunesApi.fetchSongs()`
-Berfungsi untuk mengambil data lagu dari API iTunes berdasarkan kata kunci tertentu.  
+
+Fungsi ini digunakan untuk mengambil data lagu dari API iTunes berdasarkan kata kunci pencarian.
+
 Contoh:
+
+```dart
 final songs = await ItunesApi.fetchSongs("Taylor Swift");
+```
 
-### 2. `MusicPlayerPage`
-Halaman ini digunakan untuk memutar lagu.  
-Terdapat tombol "play", "pause", "next", dan "previous" yang berfungsi secara interaktif.
+Untuk mengambil lagu pilihan, aplikasi menggunakan pencarian berdasarkan nama artis atau judul lagu.
 
-### 3. `LikeManager` & `PlaylistManager`
-Keduanya menggunakan "Provider (ChangeNotifier)" untuk mengelola state secara global.  
-- `LikeManager` menyimpan data lagu yang disukai.  
-- `PlaylistManager` menyimpan data lagu yang ditambahkan ke playlist.  
+### 2. `HomePage`
 
-### 4. `BottomNavigationBar`
-Digunakan sebagai navigasi utama aplikasi agar pengguna bisa berpindah antar halaman dengan mudah.
+Halaman utama menampilkan daftar lagu dalam beberapa kategori. Setiap kategori disajikan dalam bentuk daftar horizontal yang menampilkan gambar album, judul lagu, dan nama artis.
 
+Kategori tambahan `Lagu Pilihan Kamu` digunakan untuk menampilkan lagu-lagu yang telah dipilih.
+
+### 3. `MusicPlayerPage`
+
+Halaman ini digunakan untuk menampilkan antarmuka pemutar musik dan menyediakan kontrol pemutaran lagu, seperti play, pause, next, dan previous.
+
+### 4. `LikeManager` dan `PlaylistManager`
+
+Kedua komponen ini menggunakan Provider untuk membantu pengelolaan state aplikasi.
+
+- `LikeManager` mengelola daftar lagu yang disukai pengguna.
+- `PlaylistManager` mengelola data lagu yang ditambahkan ke playlist.
+
+### 5. `Navigator.push()`
+
+Mekanisme ini digunakan untuk membuka halaman pemutar musik ketika pengguna memilih lagu dari halaman utama.
 
 ## Desain Tampilan
 
-Tampilan utama menggunakan tema dinamis yang dapat berubah antara light mode dan dark mode sesuai preferensi pengguna.
-Setiap section lagu dapat digeser ke samping (horizontal scroll) menampilkan gambar album, judul lagu, dan nama penyanyi.
+Antarmuka aplikasi menggunakan tata letak yang disusun dengan widget Flutter. Halaman utama menampilkan kategori lagu dalam daftar horizontal sehingga pengguna dapat menjelajahi koleksi lagu dengan mudah.
 
+Setiap item lagu menampilkan gambar album, judul lagu, dan nama artis. Tampilan juga mengikuti tema terang atau gelap sesuai konfigurasi aplikasi.
 
+## Pengembangan Selanjutnya
+
+Pengembangan berikutnya dapat mencakup penyempurnaan pencarian lagu, penanganan lagu yang tidak tersedia pada API, peningkatan pengalaman pemutaran audio, serta pengujian seluruh fitur agar berjalan sesuai harapan.
+
+**Catatan:** Lagu yang ditampilkan bergantung pada hasil pencarian API iTunes. Tidak semua lagu selalu tersedia, dan pemutaran audio bergantung pada ketersediaan preview atau sumber audio yang digunakan aplikasi.
