@@ -5,7 +5,7 @@
 
 | No  | Minggu ke  | Praktikum ke  | Topik  | Modul | Repository | 
 | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
-|  1 | 01  | 01  | Pengenalan Mobile Programming dan Setup Lingkungan  |  |
+|  1 | 01  | 01  | Pengenalan Mobile Programming dan Setup Lingkungan  | [Modul 1] (https://github.com/skydash3113-sketch/mobile/tree/main/modul_1ku "Modul 1") |
 |  2 | 01  | 01  | Widget Row dan Column | |
 |  3 | 02  | 02  | Pengaturan Layout Row dan Column di Flutter  | |
 |  4 | 02  | 02  | Widget Flexible dan Expanded  | |
