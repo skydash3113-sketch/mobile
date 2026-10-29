@@ -3,7 +3,7 @@
 
 💻Saat ini saya sedang belajar pemrograman mobile:
 
-| No  | Minggu ke  | Praktikum ke  | Topik  | Modul | Template Laporan | 
+| No  | Minggu ke  | Praktikum ke  | Topik  | Modul | Repository | 
 | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 |  1 | 01  | 01  | Pengenalan Mobile Programming dan Setup Lingkungan  |  |
 |  2 | 01  | 01  | Widget Row dan Column | |
